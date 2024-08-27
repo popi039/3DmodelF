@@ -83,6 +83,8 @@ loader.load('nice.glb', function (gltf) {
             currentAction2 = action;
             action.loop = THREE.LoopRepeat; // 繰り返し再生
             action.clampWhenFinished = false;
+            action.timeScale = 0.7; // スピードを0.7倍に設定
+            action.play(); // 常にループ再生
         }
     });
 }, undefined, function (error) {
@@ -170,19 +172,12 @@ function triggerNodAnimation() {
     }
 }
 
-// see2を5秒ごとに動かす処理
+// アニメーションの更新と描画
 function animate() {
     requestAnimationFrame(animate);
 
     // アニメーションミキサーの更新
     mixers.forEach(mixer => mixer.update(0.016));
-
-    // アニメーションの再生
-    if (currentAction2) {
-        currentAction2.play();
-        currentAction2.timeScale = 0.7; // スピードを0.7倍に設定
-        currentAction2.setLoop(THREE.LoopRepeat, Infinity); // 無限に繰り返す
-    }
 
     renderer.render(scene, camera);
 }
