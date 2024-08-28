@@ -83,7 +83,7 @@ loader.load('nice.glb', function (gltf) {
             currentAction2 = action;
             action.loop = THREE.LoopRepeat; // 繰り返し再生
             action.clampWhenFinished = false;
-            action.timeScale = 0.3; // スピードを0.3倍に設定
+            action.timeScale = 0.5; // スピードを0.5倍に設定
             action.play(); // 常にループ再生
         }
     });
